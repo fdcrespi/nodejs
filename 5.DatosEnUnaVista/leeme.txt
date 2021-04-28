@@ -1,0 +1,5 @@
+Creamos nuestro motor de vista.
+
+Lo que queremos es diferenciar el html que no cambia, con el que trae el servidor
+
+Queremos mandar parametros del servidor a la vista

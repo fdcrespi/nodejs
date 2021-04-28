@@ -1,0 +1,7 @@
+Para comprobar que lo que hicimos esta bien:
+
+Con la conexión abierta, en otra consola.
+
+En la consola escribir el comando:
+
+curl -I localhost:puerto

@@ -1,0 +1,33 @@
+Express Middlewares
+
+Express es el framework web que estamos usamos.
+    - Es un frame minimalista
+    - es una pila de funciones que se ejecutan una despues de la otra
+
+Middlewares
+
+    Request-Response Cycle
+    -> Recibimos una peticion --> mandamos una respuesta
+
+    Lo que pasa entre medio es el ciclo.
+
+    Las funciones que se ejecutan entre que recibimos una peticion
+    y mandamos una respuesta, se llaman Middlewares
+
+Los Middlewares son una pila de funciones, podemos tenes miles de ellos
+ejecutandose entre la peticion y la respuesta
+- Cada funcion, manda a llamar la siguiente funcion en la pila o termina
+
+existen distintos tipos:
+    - nivel aplicacion
+    - nivel del router
+    - de manejo de errores
+    - Bluilt-in (que vienen con express)
+    - de terceros
+
+> Built-In: 
+    Vienen con express, solo es uno y solo se encarga de servir los archivos estaticos
+
+> Nivel aplicacion
+    - Son los que estamos usando en app.js
+    > las funciones que hicimos.

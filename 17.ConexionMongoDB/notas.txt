@@ -1,0 +1,9 @@
+MongoDB
+
+> Es un manejador de base de datos no SQL, eso quiere decir
+que mas bien es una base de datos no relacional
+Y para hacer las consultas no se usa SQL, sino que es un lenguaje orientado a objetos
+
+> Almanecena los datos en formato JSON.
+
+> 

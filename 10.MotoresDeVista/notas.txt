@@ -1,0 +1,9 @@
+Motores de vista
+
+vamos a utilizar JADE -> deprecated
+ahora se llama pug
+
+paquete de NPM
+
+
+npm install pug
