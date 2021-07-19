@@ -1,2 +1,0 @@
-Podemos colocar codigo en el archivo pug, 
-se ejecuta en el servidor

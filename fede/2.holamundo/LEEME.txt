@@ -1,8 +1,0 @@
-Para que funcione, como le indico en el codigo el puerto en que quiero que escuche
-
-1. tengo que iniciar el servidor en node:
-node archivo.js
-(se quedará escuchando)
-
-2. Abrir el navegador en ese puerto: 
-localhost:numero_puerto

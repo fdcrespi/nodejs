@@ -16,21 +16,18 @@ app.get('/', function(req, res) {
     res.render("index");
 });
 
-app.get('/login', function(req, res) {
+app.get('/signup', function(req, res) {
     User.find(function(err, doc) {
         console.log(doc);
-        res.render("login");
+        res.render("signup");
     });
 });
 
+app.get('/login', function(req, res) {
+    res.render('login');
+})
+
 app.post('/users', function(req, res) {
-    /* Pasos para guardar 
-     * 1 - creamos el modelo
-     * 2 - le pasamos los campos del schema
-     * 3 - Este objeto viene con la BBDD y sus metodos
-     * 4 - Con save le decimos a mongoose que vaya a la BBDD y los guarde
-     * 5 - La funcion callback, se ejecuta despues de guardarse
-     */
     let user = new User({
         email: req.body.email,
         password: req.body.password,
@@ -47,6 +44,15 @@ app.post('/users', function(req, res) {
             res.send("No pudimos guardar la información, verifique la misma");
         };
     }
+});
+
+app.post('/sessions', function(req, res) {
+    //nos devuelve un arreglo de argumentos que nos devuelve la condicion
+    //nos devuelve un alemento q cumple la condicion
+    User.findOne({ email: req.body.email, password: req.body.password }, function(err, docs) {
+        console.log(docs);
+        res.send("hola mundo");
+    });
 });
 
 
