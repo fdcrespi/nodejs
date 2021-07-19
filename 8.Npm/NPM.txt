@@ -1,0 +1,23 @@
+Nos permite instalar librerias/paquetes para un desarrollo mas productivo.
+
+NPM es un manejador de paquetes que tiene la gran mayoria de librerias de node
+
+npm -v --> nos da la version de npm que tenemos
+
+www.npmjs.com
+
+express es uno de los mas usados.
+
+npm init --> nos inicializa el paquete. 
+te crea el package.json, que nps da informacion del proyecto y las dependencia que este tenga
+
+
+npm install express --save --> para instalar express es
+
+nos crea una carpeta llamada node_modules donde se encuentran instalados los archivos
+de los modulos que vayamos instalando.
+
+y en package.json nos agrega la dependencia, es decir que si elimino node_modules
+hago "npm install" nos instala todas las depencencias en el apartado de este json en
+
+Se recomienta en gitignore, agregar node_modules. "/node_modules"

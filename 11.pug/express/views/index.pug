@@ -1,0 +1,32 @@
+doctype html 
+html(lang="es")
+    head
+        title nodejs codigo facilito
+    body
+        h1 Hello word! 
+        p esto fue escrito por #{name}
+        - const array = [1,2,3,4,5]
+        - for (let i = 0; i < array.length; i++)
+            p= array[i]
+            //interpolacion
+            p Hola #{array[i]}           
+            //la diferencia entre != e = es que el primero nos imprime todo,
+            //el segundo nos imprime todo tal cual escribamos, solo cadena de texto por mas q tengamos mas html
+            //lo mas recomendado es solo = 
+        //interpolacion de etiquetas
+        p.
+            Esto fue escrito por Fede #[a(href="contacto") link | click]
+        //condicionales
+        if true
+            p fede
+        //iterador
+        each item in array
+            p= item
+            //case
+            case item
+                when 1
+                    p item es uno
+
+            
+            
+        

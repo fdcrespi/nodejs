@@ -1,13 +1,3 @@
-Npm es el manejador de paquetes de node, sirve para importar librerias ya realizadas
+Express es un framework web minimalista, lo que nos permite
+realizar tareas de formas mas faciles.
 
-npm -v => nos devuelve la version de npm instalada
-
-creamos una carpeta en el proyecto y por consola dentro de la carpeta
-> npm init
- (completamos todos los parametros que nos pide)
-
-instalando express (libreria npm)
-npm install express --save
-
-EXPRESS
-es un framework web minimalista, que abtrae muchas cosas que hay que hacer
