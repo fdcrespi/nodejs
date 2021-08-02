@@ -6,6 +6,7 @@ const app = express();
 const User = require("./models/user").User;
 /* manejador de sesiones */
 const session = require("express-session");
+const router_app = require("./router_app");
 
 app.use("/estatico", express.static('public'));
 /* para leer parametros de un form */
@@ -67,6 +68,8 @@ app.post('/sessions', function(req, res) {
         res.send("hola mundo");
     });
 });
+
+app.use("/app", router_app);
 
 
 app.listen(8080);

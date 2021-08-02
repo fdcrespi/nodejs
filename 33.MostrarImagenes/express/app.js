@@ -5,21 +5,30 @@ const app = express();
 /*Importo los modelos creados */
 const User = require("./models/user").User;
 /* manejador de sesiones */
-const session = require("express-session");
+//const session = require("express-session");
+/* incorporar la ruta /app */
+const router_app = require("./router_app");
+/* usar el middleware de session */
+const session_middleware = require("./middlewares/session");
 
-app.use("/estatico", express.static('public'));
+/* Alternativas a manejo de sesiones - cookies 
+ * Se guardan en el cliente
+ */
+const cookieSession = require("cookie-session")
+
+
+app.use(express.static(__dirname + '/public'));
+//app.use("/estatico", express.static('public'));
+
 /* para leer parametros de un form */
 app.use(express.json()); // para peticiones en application/json
 app.use(express.urlencoded({ extended: true })); //para peticiones normales con extended le decimos el algoritmo, con true hacemos parsing con mas cosas 
 
 /** para la session */
-app.use(session({
-    //clave unica por app para q no haya colisiones
-    secret: "ds5f4as6d8f7sa6df13",
-    //la sesion se vuelve a guardar sin ser modificada, con true
-    resave: false,
-    //indica si la sesion se debe guardar aun no inicializada
-    saveUninitialized: false
+app.use(cookieSession({
+    /* Parametros claves */
+    name: "session",
+    keys: ["llave-1", "llave-2"]
 }));
 
 app.set('view engine', 'pug');
@@ -64,9 +73,13 @@ app.post('/sessions', function(req, res) {
     //nos devuelve un alemento q cumple la condicion
     User.findOne({ email: req.body.email, password: req.body.password }, function(err, user) {
         req.session.user_id = user._id;
-        res.send("hola mundo");
+        res.redirect("/app");
     });
 });
+
+app.use("/app", session_middleware);
+app.use("/app", router_app);
+
 
 
 app.listen(8080);

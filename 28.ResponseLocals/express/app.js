@@ -6,8 +6,14 @@ const app = express();
 const User = require("./models/user").User;
 /* manejador de sesiones */
 const session = require("express-session");
+/* incorporar la ruta /app */
+const router_app = require("./router_app");
+/* usar el middleware de session */
+const session_middleware = require("./middlewares/session");
 
-app.use("/estatico", express.static('public'));
+app.use(express.static(__dirname + '/public'));
+//app.use("/estatico", express.static('public'));
+
 /* para leer parametros de un form */
 app.use(express.json()); // para peticiones en application/json
 app.use(express.urlencoded({ extended: true })); //para peticiones normales con extended le decimos el algoritmo, con true hacemos parsing con mas cosas 
@@ -64,9 +70,13 @@ app.post('/sessions', function(req, res) {
     //nos devuelve un alemento q cumple la condicion
     User.findOne({ email: req.body.email, password: req.body.password }, function(err, user) {
         req.session.user_id = user._id;
-        res.send("hola mundo");
+        res.redirect("/app");
     });
 });
+
+app.use("/app", session_middleware);
+app.use("/app", router_app);
+
 
 
 app.listen(8080);
