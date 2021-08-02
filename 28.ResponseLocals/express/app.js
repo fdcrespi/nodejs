@@ -13,7 +13,10 @@ const session_middleware = require("./middlewares/session");
 
 app.use(express.static(__dirname + '/public'));
 //app.use("/estatico", express.static('public'));
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4249b5a70a86483bec16f930458574bcaeb7f027
 /* para leer parametros de un form */
 app.use(express.json()); // para peticiones en application/json
 app.use(express.urlencoded({ extended: true })); //para peticiones normales con extended le decimos el algoritmo, con true hacemos parsing con mas cosas 
