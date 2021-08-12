@@ -10,10 +10,12 @@ const User = require("./models/user").User;
 const router_app = require("./router_app");
 /* usar el middleware de session */
 const session_middleware = require("./middlewares/session");
+/* Para las imagenes */
+var formdata = require("express-form-data");
 
 /* Metodo middleware que nos permite utilizar verbos http
-* que no implementa el navegador
-* como DELETE O PUT */
+ * que no implementa el navegador
+ * como DELETE O PUT */
 const methodOverride = require("method-override");
 
 /* Alternativas a manejo de sesiones - cookies 
@@ -22,7 +24,7 @@ const methodOverride = require("method-override");
 const cookieSession = require("cookie-session")
 
 
-app.use(express.static(__dirname + '/public'));
+app.use("/public", express.static("public"));
 //app.use("/estatico", express.static('public'));
 
 /* para leer parametros de un form */
@@ -37,6 +39,13 @@ app.use(cookieSession({
     name: "session",
     keys: ["llave-1", "llave-2"]
 }));
+
+app.use(formdata.parse({
+    keepExtensions: true
+}));
+/* para que me guarde la extension */
+/* keepExtensions: true
+})); */
 
 app.set('view engine', 'pug');
 

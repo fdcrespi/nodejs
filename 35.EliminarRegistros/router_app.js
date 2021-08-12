@@ -55,19 +55,25 @@ router.route('/imagenes/:id')
     })
     .put((req, res) => {
         Imagen.findById(req.params.id, function(err, imagen) {
-           imagen.title = req.body.title;
-           imagen.save(function(err){
-               if(!err){
-                   res.render("app/imagenes/show", {imagen: imagen});
-               }
-               else {
-                   res.render("app/imagenes/"+imagen.id+"/edit", {imagen: imagen});
-               }
-           })
+            imagen.title = req.body.title;
+            imagen.save(function(err) {
+                if (!err) {
+                    res.render("app/imagenes/show", { imagen: imagen });
+                } else {
+                    res.render("app/imagenes/" + imagen.id + "/edit", { imagen: imagen });
+                }
+            })
         });
     })
     .delete((req, res) => {
-
+        Imagen.deleteOne({ _id: req.params.id }, function(err) {
+            if (!err) {
+                res.redirect('/app/imagenes');
+            } else {
+                console.log(err);
+                res.redirect("/app/imagenes/" + req.params.id);
+            }
+        });
     });
 
 /* Exportamos todo el objeto para importarlo en otros js */
